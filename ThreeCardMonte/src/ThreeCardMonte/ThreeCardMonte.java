@@ -32,6 +32,7 @@ public class ThreeCardMonte {
 		again=keyboard.next();
 		
 		}
+		System.out.println("Final Balance: $"+balance);
 		rec.Display();
 	}
 	public void Reveal(Integer rand, Integer p){
