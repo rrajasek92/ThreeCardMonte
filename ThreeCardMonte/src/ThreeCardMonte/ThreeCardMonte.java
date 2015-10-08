@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ThreeCardMonte {
 	Scanner keyboard = new Scanner(System.in);
-	private String again="y";
+	private String again="y",outcome="";
 	public double balance=100,bet=5;
 	
 	
@@ -15,6 +15,7 @@ public class ThreeCardMonte {
 		return place;
 	}
 	public void Display(){
+		Record rec = new Record();
 		while(again.equals("y")){
 		System.out.println("Welcome to Three Card Monte!\nMoney: $"+balance+" (Buyin $5 minimum)\n");	
 		betCheck(balance);
@@ -24,19 +25,22 @@ public class ThreeCardMonte {
 							"\t1   2   3  \n");
 		int pick=keyboard.nextInt();
 		Reveal(Shuffle(),pick);
-		if (balance<5){System.out.println("You're broke!\nBalance: $"+balance+"\n");return;}
-		else if (balance>=500){System.out.println("You win!\nBalance: $"+balance+"\n"); return;}
+		rec.RecordIt(bet, outcome, balance);
+		if (balance<5){System.out.println("You're broke!\nBalance: $"+balance+"\n");break;}
+		else if (balance>=500){System.out.println("You win!\nBalance: $"+balance+"\n"); break;}
 		System.out.println("Play again?(y/n)\n");
 		again=keyboard.next();
 		
 		}
+		rec.Display();
 	}
 	public void Reveal(Integer rand, Integer p){
 		if (p==rand){
 			System.out.println("You're right!");
 			balance=balance+bet*2;
+			outcome="Win";
 		}
-		else System.out.println("HAH! You lose!");
+		else {System.out.println("HAH! You lose!"); outcome="Loss";}
 		if (rand==1){
 		System.out.println("\n"+
 						   "\tAA  ##  ##\n"+
