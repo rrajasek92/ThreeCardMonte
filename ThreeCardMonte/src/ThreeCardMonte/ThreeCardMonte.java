@@ -24,8 +24,8 @@ public class ThreeCardMonte {
 							"\t1   2   3  \n");
 		int pick=keyboard.nextInt();
 		Reveal(Shuffle(),pick);
-		if (balance<5){System.out.println("You're broke!\nBalance: "+balance+"\n");return;}
-		else if (balance>=500){System.out.println("You win!\nBalance: "+balance+"\n"); return;}
+		if (balance<5){System.out.println("You're broke!\nBalance: $"+balance+"\n");return;}
+		else if (balance>=500){System.out.println("You win!\nBalance: $"+balance+"\n"); return;}
 		System.out.println("Play again?(y/n)\n");
 		again=keyboard.next();
 		
