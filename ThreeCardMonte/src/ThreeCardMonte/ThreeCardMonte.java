@@ -1,10 +1,14 @@
 package ThreeCardMonte;
 import java.util.Random;
 import java.util.Scanner;
+
+
 public class ThreeCardMonte {
 	Scanner keyboard = new Scanner(System.in);
 	private String again="y";
 	public double balance=100,bet=5;
+	
+	
 	public int Shuffle(){
 		Random r = new Random();
 		int place = 1 + r.nextInt(3);
